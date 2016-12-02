@@ -1,0 +1,50 @@
+swagger: '2.0'
+info:
+  title: My API
+  description: <api description>
+  version: "1.0.0"
+# the domain of the service
+host: <server URL>
+# array of all schemes that your API supports
+schemes:
+  - https
+# will be prefixed to all paths
+basePath: /
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+  /:
+    post:
+      summary: search an employee
+      description: searches an employee
+      parameters:
+        - name: username
+          in: formData
+          description: name of the user
+          required: true
+          type: string
+        - name: password
+          in: formData
+          description: password of the user
+          required: true
+          type: string
+      responses:
+        200:
+          description: Form with elements
+          schema: 
+            $ref: "#/definitions/MyResponse"
+          
+definitions:
+  MyResponse:
+    properties:
+      item1:
+        type: string
+        description: first item
+      item2:
+        type: string
+        description: second item.
+      item3:
+        type: string
+        description: third item.
